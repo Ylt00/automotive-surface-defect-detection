@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "automotive-surface-defect-detection"
+version = "0.1.0"
+description = "YOLOv8-based automotive surface defect detection."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "杨丽彤" }]
+dependencies = [
+    "numpy>=1.26,<3",
+    "opencv-python>=4.8,<6",
+    "PyYAML>=6,<7",
+    "matplotlib>=3.8,<4",
+]
+
+[project.optional-dependencies]
+train = [
+    "ultralytics>=8.3,<9",
+]
+
+[project.scripts]
+auto-defect = "defect_detection.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

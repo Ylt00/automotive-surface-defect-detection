@@ -205,6 +205,56 @@ def plot_training_curves(results_csv: str | Path, output_path: str | Path) -> Pa
     return output
 
 
+def collect_box_areas(images_dir: str | Path, labels_dir: str | Path) -> list[float]:
+    """Collect defect box areas in pixels."""
+
+    images_path = Path(images_dir)
+    labels_path = Path(labels_dir)
+    areas: list[float] = []
+    for image_path in sorted(images_path.glob("*")):
+        if image_path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".bmp", ".webp"}:
+            continue
+        label_path = labels_path / image_path.with_suffix(".txt").name
+        if not label_path.exists():
+            continue
+        image = _read_image(image_path)
+        height, width = image.shape[:2]
+        for line in label_path.read_text(encoding="utf-8").splitlines():
+            values = line.split()
+            if len(values) != 5:
+                continue
+            box_width = float(values[3]) * width
+            box_height = float(values[4]) * height
+            areas.append(box_width * box_height)
+    return areas
+
+
+def plot_defect_size_distribution(
+    images_dir: str | Path,
+    labels_dir: str | Path,
+    output_path: str | Path,
+) -> Path:
+    """Plot defect area distribution with COCO size thresholds."""
+
+    areas = collect_box_areas(images_dir, labels_dir)
+    if not areas:
+        raise ValueError("No boxes found for defect size distribution.")
+    fig, axis = plt.subplots(figsize=(8, 4.8))
+    axis.hist(areas, bins=30, color="#4C78A8", edgecolor="white")
+    axis.axvline(32**2, color="#F58518", linestyle="--", label="Small boundary (32x32)")
+    axis.axvline(96**2, color="#E45756", linestyle="--", label="Medium boundary (96x96)")
+    axis.set_xlabel("Box area in pixels")
+    axis.set_ylabel("Number of defects")
+    axis.set_title("NEU-DET Defect Size Distribution")
+    axis.grid(axis="y", alpha=0.25)
+    axis.legend()
+    fig.tight_layout()
+    output = Path(output_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output, dpi=160)
+    plt.close(fig)
+    return output
+
 def copy_analysis_plot(source: str | Path, output_path: str | Path) -> Path | None:
     """Copy an existing analysis plot if it exists."""
 
@@ -272,6 +322,7 @@ def build_visual_report(
 
     plot_overall_metrics(metrics_path, analysis_path / "overall-metrics.png")
     plot_training_curves(results_csv, analysis_path / "training-curves.png")
+    plot_defect_size_distribution(images_path, labels_path, analysis_path / "defect-size-distribution.png")
 
     copied: list[str] = []
     for source_name, output_name in (

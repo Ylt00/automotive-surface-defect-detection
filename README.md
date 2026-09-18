@@ -61,6 +61,25 @@ NEU-DET is a public research dataset. Raw images, labels, and converted datasets
 | mAP50-95 | 0.361 |
 
 Training details are recorded in `docs/experiments/neu-det-yolov8n.md`.
+## Detection Results
+
+![Ground truth defects](docs/assets/ground-truth-grid.jpg)
+
+![YOLOv8n predictions](docs/assets/prediction-grid.jpg)
+
+![Small defect examples](docs/assets/small-object-grid.jpg)
+
+## Evaluation Analysis
+
+![Overall metrics](docs/analysis/overall-metrics.png)
+
+![Training curves](docs/analysis/training-curves.png)
+
+![Confusion matrix](docs/analysis/confusion-matrix.png)
+
+![Precision recall curve](docs/analysis/precision-recall-curve.png)
+
+![Defect size distribution](docs/analysis/defect-size-distribution.png)
 ## Status
 
-The YOLOv8n baseline is trained and evaluated. Visualization, P2 comparison, and release stages will be added later.
+The YOLOv8n baseline and visual report are complete. P2 comparison and release stages will be added later.

@@ -51,6 +51,16 @@ NEU-DET is a public research dataset. Raw images, labels, and converted datasets
 | Medium objects | 2774 |
 | Large objects | 968 |
 | Validation errors | 0 |
+## YOLOv8n Baseline
+
+| Metric | Value |
+|---|---:|
+| Precision | 0.668 |
+| Recall | 0.655 |
+| mAP50 | 0.708 |
+| mAP50-95 | 0.361 |
+
+Training details are recorded in `docs/experiments/neu-det-yolov8n.md`.
 ## Status
 
-Dataset preparation is implemented and verified. Training, evaluation, visualization, and release stages will be added incrementally.
+The YOLOv8n baseline is trained and evaluated. Visualization, P2 comparison, and release stages will be added later.

@@ -1,0 +1,26 @@
+{
+  "candidate": {
+    "metrics": {
+      "metrics/mAP50(B)": 0.2839707465298144,
+      "metrics/mAP50-95(B)": 0.10240619013370998,
+      "metrics/precision(B)": 0.627862669964693,
+      "metrics/recall(B)": 0.3122435065522511
+    },
+    "name": "YOLOv8n-P2 128px"
+  },
+  "delta": {
+    "metrics/mAP50(B)": -0.1030832919970196,
+    "metrics/mAP50-95(B)": -0.06972345478499996,
+    "metrics/precision(B)": 0.2842671113781659,
+    "metrics/recall(B)": -0.17426537675368164
+  },
+  "reference": {
+    "metrics": {
+      "metrics/mAP50(B)": 0.387054038526834,
+      "metrics/mAP50-95(B)": 0.17212964491870994,
+      "metrics/precision(B)": 0.3435955585865271,
+      "metrics/recall(B)": 0.4865088833059327
+    },
+    "name": "YOLOv8n 128px"
+  }
+}

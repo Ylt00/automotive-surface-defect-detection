@@ -80,6 +80,11 @@ Training details are recorded in `docs/experiments/neu-det-yolov8n.md`.
 ![Precision recall curve](docs/analysis/precision-recall-curve.png)
 
 ![Defect size distribution](docs/analysis/defect-size-distribution.png)
+## YOLOv8n-P2 Comparison
+
+![Model comparison](docs/analysis/model-comparison.png)
+
+Under the identical low-cost protocol of 128-pixel input, 3 epochs, and CPU training, P2 did not improve mAP over YOLOv8n. The negative result and limitations are documented in `docs/experiments/model-comparison.md`.
 ## Status
 
-The YOLOv8n baseline and visual report are complete. P2 comparison and release stages will be added later.
+The YOLOv8n baseline, visual report, and P2 comparison are complete. Final release preparation remains.

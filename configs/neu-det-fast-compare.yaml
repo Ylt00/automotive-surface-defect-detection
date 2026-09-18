@@ -1,0 +1,16 @@
+# Low-cost YOLOv8n control for P2 comparison.
+model: yolov8n.pt
+data: data/processed/neu-det/data.yaml
+epochs: 3
+imgsz: 128
+batch: 32
+device: cpu
+workers: 0
+seed: 42
+deterministic: true
+project: runs/train
+name: neu-det-yolov8n-128
+exist_ok: true
+plots: false
+amp: false
+close_mosaic: 0

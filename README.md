@@ -38,6 +38,19 @@ YOLOv8-based surface defect detection for automotive and industrial quality insp
 
 NEU-DET is a public research dataset. Raw images, labels, and converted datasets are not committed to this repository. The download script will preserve the original source and attribution. Dataset terms remain separate from the repository's MIT license.
 
+## Prepared Dataset
+
+| Item | Value |
+|---|---:|
+| Source | NEU-DET |
+| Train images | 1620 |
+| Validation images | 180 |
+| Total images | 1800 |
+| Retained objects | 4189 |
+| Small objects | 447 |
+| Medium objects | 2774 |
+| Large objects | 968 |
+| Validation errors | 0 |
 ## Status
 
-Project initialization. Data preparation, training, evaluation, visualization, and release stages will be added incrementally.
+Dataset preparation is implemented and verified. Training, evaluation, visualization, and release stages will be added incrementally.

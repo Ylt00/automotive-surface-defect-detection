@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "automotive-surface-defect-detection"
-version = "0.1.0"
+version = "1.0.0"
 description = "YOLOv8-based automotive surface defect detection."
 readme = "README.md"
 requires-python = ">=3.10"

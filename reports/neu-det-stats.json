@@ -1,0 +1,30 @@
+{
+  "source_repository": "Marfbin/NEU-DET-with-yolov8",
+  "source_root": "NEU-DET",
+  "train_images": 1620,
+  "val_images": 180,
+  "classes": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "objects": 4189,
+  "class_objects": {
+    "0": 689,
+    "2": 881,
+    "1": 1011,
+    "3": 432,
+    "4": 628,
+    "5": 548
+  },
+  "size_distribution": {
+    "small": 447,
+    "medium": 2774,
+    "large": 968
+  },
+  "errors": [],
+  "warnings": []
+}
